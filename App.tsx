@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Location from 'expo-location';
+import Constants from 'expo-constants';
 
+
+
+const API_KEY = Constants.manifest?.extra?.EXPO_PUBLIC_APIKEY as string;
 
 interface WeatherData {
   name: string;
@@ -11,7 +15,7 @@ interface WeatherData {
   weather: { description: string }[];
 }
 
-const API_KEY = '6519faee8773cf2a2d41b2309edf0bdc'; // Replace with your OpenWeather API key
+
 
 export default function App() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
